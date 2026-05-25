@@ -1,0 +1,231 @@
+// STEP 1:
+// Create a new React + Vite project
+// Command:
+// npm create vite@latest
+// Select React
+// Select JavaScript
+
+// STEP 2:
+// Open src/App.jsx and replace all code with this code.
+
+// STEP 3:
+// Install Tailwind CSS
+// Commands:
+// npm install -D tailwindcss postcss autoprefixer
+// npx tailwindcss init -p
+
+// STEP 4:
+// Add Tailwind in src/index.css
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+
+// STEP 5:
+// Run Website
+// npm install
+// npm run dev
+
+// STEP 6:
+// Upload project to GitHub and deploy on Vercel.
+
+export default function EcommerceStore() {
+  const products = [
+    {
+      name: "Premium Sneakers",
+      price: "₹2,999",
+      image:
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      name: "Smart Watch",
+      price: "₹4,499",
+      image:
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      name: "Wireless Headphones",
+      price: "₹1,999",
+      image:
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      name: "Fashion Hoodie",
+      price: "₹1,499",
+      image:
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-100 text-gray-900">
+      {/* Navbar */}
+      <header className="bg-white shadow sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+          <h1 className="text-2xl font-bold">ShopZone</h1>
+
+          <nav className="hidden md:flex gap-8 font-medium">
+            <a href="#home" className="hover:text-blue-600">
+              Home
+            </a>
+            <a href="#products" className="hover:text-blue-600">
+              Products
+            </a>
+            <a href="#about" className="hover:text-blue-600">
+              About
+            </a>
+            <a href="#contact" className="hover:text-blue-600">
+              Contact
+            </a>
+          </nav>
+
+          <button className="bg-black text-white px-4 py-2 rounded-xl hover:scale-105 transition">
+            Cart
+          </button>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section
+        id="home"
+        className="bg-gradient-to-r from-black to-gray-800 text-white"
+      >
+        <div className="max-w-7xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 className="text-4xl md:text-6xl font-bold leading-tight">
+              Build Your Style With Trendy Products
+            </h2>
+            <p className="mt-6 text-lg text-gray-300">
+              Mobile + Desktop responsive online shopping website for your
+              business.
+            </p>
+
+            <div className="mt-8 flex gap-4 flex-wrap">
+              <button className="bg-white text-black px-6 py-3 rounded-2xl font-semibold hover:scale-105 transition">
+                Shop Now
+              </button>
+              <button className="border border-white px-6 py-3 rounded-2xl hover:bg-white hover:text-black transition">
+                Explore
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop"
+              alt="fashion"
+              className="rounded-3xl shadow-2xl w-full h-[400px] object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Products */}
+      <section id="products" className="max-w-7xl mx-auto px-4 py-16">
+        <div className="flex items-center justify-between mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold">Featured Products</h2>
+          <button className="bg-black text-white px-5 py-2 rounded-xl">
+            View All
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {products.map((product, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition duration-300"
+            >
+              <img
+                src={product.image}
+                alt={product.name}
+                className="h-64 w-full object-cover"
+              />
+
+              <div className="p-5">
+                <h3 className="text-xl font-semibold">{product.name}</h3>
+                <p className="text-gray-600 mt-2">{product.price}</p>
+
+                <button className="mt-5 w-full bg-black text-white py-3 rounded-2xl hover:bg-gray-800 transition">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* About */}
+      <section id="about" className="bg-white py-16">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold">Why Choose Us?</h2>
+          <p className="mt-5 text-gray-600 max-w-3xl mx-auto text-lg">
+            Fast delivery, secure payment, mobile responsive design, and a
+            premium shopping experience for your customers.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
+            <div className="bg-gray-100 p-8 rounded-3xl shadow-sm">
+              <h3 className="text-xl font-bold">Fast Delivery</h3>
+              <p className="mt-3 text-gray-600">
+                Quick shipping and easy order tracking.
+              </p>
+            </div>
+
+            <div className="bg-gray-100 p-8 rounded-3xl shadow-sm">
+              <h3 className="text-xl font-bold">Secure Payment</h3>
+              <p className="mt-3 text-gray-600">
+                UPI, cards, and online payment integration.
+              </p>
+            </div>
+
+            <div className="bg-gray-100 p-8 rounded-3xl shadow-sm">
+              <h3 className="text-xl font-bold">24/7 Support</h3>
+              <p className="mt-3 text-gray-600">
+                Customer support anytime for your buyers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="max-w-4xl mx-auto px-4 py-16">
+        <div className="bg-black text-white rounded-3xl p-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Start Your Online Store Today
+          </h2>
+          <p className="mt-4 text-gray-300">
+            Responsive website for mobile and desktop users.
+          </p>
+
+          <div className="mt-8 flex flex-col md:flex-row gap-4 justify-center">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="px-5 py-3 rounded-2xl text-black w-full md:w-96"
+            />
+            <button className="bg-white text-black px-6 py-3 rounded-2xl font-semibold hover:scale-105 transition">
+              Get Started
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-white border-t">
+        <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          <h2 className="font-bold text-xl">ShopZone</h2>
+
+          <p className="text-gray-500 text-sm text-center">
+            © 2026 ShopZone. All rights reserved.
+          </p>
+
+          <div className="flex gap-4 text-sm">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">WhatsApp</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
